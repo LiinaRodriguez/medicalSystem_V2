@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\Admin\SpecialtyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +25,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+Route::middleware(['auth', 'admin'])->group(function () {
+    
 //Specialty routes
-    Route::get('/especialidades', [SpecialtyController::class, 'index']);
+Route::get('/especialidades', [SpecialtyController::class, 'index']);
 
 //crear 
     Route::get('/especialidades/create', [SpecialtyController::class, 'create']);
@@ -42,7 +43,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //Medicos 
-    Route::resource('medicos', 'App\Http\Controllers\DoctorController'); 
+    Route::resource('medicos', 'App\Http\Controllers\Admin\DoctorController'); 
 
 //Pacientes 
-    Route::resource('pacientes', 'App\Http\Controllers\PatientController');
+    Route::resource('pacientes', 'App\Http\Controllers\Admin\PatientController');
+
+});
+
