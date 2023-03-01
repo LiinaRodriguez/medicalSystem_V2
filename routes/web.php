@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SpecialtyController;
+use App\Http\Controllers\Doctor\ScheduleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+//Midlleware Admin
 Route::middleware(['auth', 'admin'])->group(function () {
     
 //Specialty routes
@@ -50,3 +54,15 @@ Route::get('/especialidades', [SpecialtyController::class, 'index']);
 
 });
 
+//Midlleware Doctor
+Route::middleware(['auth', 'medico'])->group(function () {
+    Route::get('/horario', [ScheduleController::class, 'edit']);
+    Route::post('/horario', [ScheduleController::class, 'store']);
+
+
+});
+
+//Midlleware Paciente
+Route::middleware(['auth', 'paciente'])->group(function () {
+
+});
