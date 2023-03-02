@@ -33,7 +33,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
 //Specialty routes
 Route::get('/especialidades', [SpecialtyController::class, 'index']);
-
 //crear 
     Route::get('/especialidades/create', [SpecialtyController::class, 'create']);
 //editar
@@ -43,14 +42,16 @@ Route::get('/especialidades', [SpecialtyController::class, 'index']);
 //actualizar datos
     Route::put('/especialidades/{specialty}', [SpecialtyController::class, 'update']);   
 // eliminar datos
-    Route::delete('/especialidades/{specialty}', [SpecialtyController::class, 'destroy']);   
-
+    Route::delete('/especialidades/{specialty}', [SpecialtyController::class, 'destroy']); 
 
 //Medicos 
     Route::resource('medicos', 'App\Http\Controllers\Admin\DoctorController'); 
 
 //Pacientes 
     Route::resource('pacientes', 'App\Http\Controllers\Admin\PatientController');
+
+//Centros
+    Route::get('/centros', []);
 
 });
 

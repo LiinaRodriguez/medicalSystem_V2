@@ -13,7 +13,7 @@
               <h3 class="mb-0">Nuevo paciente</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ url('/pacientes')}}" class="btn btn-sm btn-primary">
+              <a href="{{ url('/paciente')}}" class="btn btn-sm btn-primary">
                 <i class="fas fa-arrow-left"></i> Regresar
               </a>
             </div>

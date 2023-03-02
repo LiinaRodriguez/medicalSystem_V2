@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./examples/maps.html">
+            <a class="nav-link " href="">
               <i class="ni ni-pin-3 text-orange"></i> Sedes
             </a>
           </li>
