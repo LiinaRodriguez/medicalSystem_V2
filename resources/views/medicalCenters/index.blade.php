@@ -9,7 +9,7 @@
               <h3 class="mb-0">Centros médicos</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ url('/especialidades/create')}}" class="btn btn-sm btn-primary">Nueva Centro</a>
+              <a href="{{ url('/centros/create')}}" class="btn btn-sm btn-primary">Nuevo Centro</a>
             </div>
           </div>
         </div>
@@ -27,34 +27,35 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Municipio</th>
                 <th scope="col">Departamento</th>
+                <th scope="col">Ciudad</th>
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody>
-                @foreach($specialties as $esp)
+               @foreach($medicalcenters as $medcenter)
               <tr>
                 <th scope="row">
-                 {{$esp->name}}
+                  {{$medcenter->name}}
                 </th>
                 <td>
-                 {{$esp->description}}
+                  <!--{{$medcenter->department}}-->
                 </td>
                 <td>
-                    <form action="{{ url( '/especialidades/'.$esp->id )}}" method="POST">
+                   <!--{{$medcenter->city}}-->
+                </td>
+                <td>
+                    <form action="{{ url('/centros/'.$medcenter->id)}}" method="POST">
                       @csrf 
-
                       @method('DELETE')
-                    
-                      <a href="{{ url('/especialidades/'.$esp->id.'/edit')}}" class="btn btn-sm btn-primary">  Editar</a>
-                    
+                      
+                      <a href="{{ url('/centros/'.$medcenter->id.'/edit')}}" class="btn btn-sm btn-primary">  Editar</a>
                       <button type = "submit" class="btn btn-sm btn-danger">Eliminar</button>
                     </form>
                     
                 </td>
               </tr>
-              @endforeach
+             @endforeach
             </tbody>
           </table>
         </div>

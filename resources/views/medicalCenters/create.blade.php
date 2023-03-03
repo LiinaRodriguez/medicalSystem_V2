@@ -1,7 +1,3 @@
-<?php
-  use Illuminate\Support\Str; 
-?>
-
 @extends('layouts.panel')
 
 @section('content')
@@ -10,10 +6,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Nuevo paciente</h3>
+              <h3 class="mb-0">Nuevo centro médico</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ url('/paciente')}}" class="btn btn-sm btn-primary">
+              <a href="{{ url('/centros')}}" class="btn btn-sm btn-primary">
                 <i class="fas fa-arrow-left"></i> Regresar
               </a>
             </div>
@@ -21,7 +17,7 @@
         </div>
 
         <div class="card-body">
-            <form action="{{ url('/pacientes')}}" method="POST">
+            <form action="{{ url('/centros')}}" method="POST">
                 @csrf
 
                 @if ($errors->any())
@@ -33,28 +29,16 @@
                   @endforeach
                 @endif
                 <div class="form-group">
-                    <label for="name">Nombre</label>
+                    <label for="name">Nombre del centro</label>
                     <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                    <label for="description">Departamento</label>
+                    <input type="text" name="description" class="form-control" value="{{old('description')}}">
                 </div>
                 <div class="form-group">
-                    <label for="cedula">Cédula</label>
-                    <input type="text" name="cedula" class="form-control" value="{{old('cedula')}}">
-                </div>
-                <div class="form-group">
-                    <label for="address">Dirección</label>
-                    <input type="text" name="address" class="form-control" value="{{old('address')}}">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Teléfono</label>
-                    <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="text" name="password" class="form-control" value="{{old('password', Str::random(8)) }}">
+                    <label for="description">Ciudad</label>
+                    <input type="text" name="description" class="form-control" value="{{old('description')}}">
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
             </form>

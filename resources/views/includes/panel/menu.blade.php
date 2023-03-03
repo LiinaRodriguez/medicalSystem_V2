@@ -21,8 +21,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="">
-              <i class="ni ni-pin-3 text-orange"></i> Sedes
+            <a class="nav-link " href="{{ url('/centros')}}">
+              <i class="ni ni-pin-3 text-orange"></i> Centros médicos
             </a>
           </li>
           <li class="nav-item">

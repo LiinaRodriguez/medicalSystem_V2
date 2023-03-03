@@ -1,0 +1,39 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"medicalsystemdb"},
+{"type":"table","name":"departamento","database":"medicalsystemdb","data":
+[
+{"id_departamento":"1","departamento":"AMAZONAS"},
+{"id_departamento":"2","departamento":"ANTIOQUIA"},
+{"id_departamento":"3","departamento":"ARAUCA"},
+{"id_departamento":"4","departamento":"ATLANTICO"},
+{"id_departamento":"5","departamento":"BOLIVAR"},
+{"id_departamento":"6","departamento":"BOYACÁ"},
+{"id_departamento":"7","departamento":"CALDAS"},
+{"id_departamento":"8","departamento":"CAQUETA"},
+{"id_departamento":"9","departamento":"CASANARE"},
+{"id_departamento":"10","departamento":"CAUCA"},
+{"id_departamento":"11","departamento":"CESAR"},
+{"id_departamento":"12","departamento":"CHOCO"},
+{"id_departamento":"13","departamento":"CORDOBA"},
+{"id_departamento":"14","departamento":"CUNDINAMARCA"},
+{"id_departamento":"15","departamento":"GUANIA"},
+{"id_departamento":"16","departamento":"GUAVIARE"},
+{"id_departamento":"17","departamento":"HUILA"},
+{"id_departamento":"18","departamento":"LA GUAJIRA"},
+{"id_departamento":"19","departamento":"MAGDALENA"},
+{"id_departamento":"20","departamento":"META"},
+{"id_departamento":"21","departamento":"NARIÑO"},
+{"id_departamento":"22","departamento":"NORTE DE SANTANDER"},
+{"id_departamento":"23","departamento":"PUTUMAYO"},
+{"id_departamento":"24","departamento":"QUINDIO"},
+{"id_departamento":"25","departamento":"RISARALDA"},
+{"id_departamento":"26","departamento":"SANTANDER"},
+{"id_departamento":"27","departamento":"SUCRE"},
+{"id_departamento":"28","departamento":"TOLIMA"},
+{"id_departamento":"29","departamento":"VALLE DEL CAUCA"},
+{"id_departamento":"30","departamento":"VAUPES"},
+{"id_departamento":"31","departamento":"VICHADA"}
+]
+}
+]

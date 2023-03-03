@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SpecialtyController;
+use App\Http\Controllers\Admin\MedicalCenterController;
 use App\Http\Controllers\Doctor\ScheduleController;
 
 /*
@@ -32,16 +33,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'admin'])->group(function () {
     
 //Specialty routes
-Route::get('/especialidades', [SpecialtyController::class, 'index']);
-//crear 
+    Route::get('/especialidades', [SpecialtyController::class, 'index']);
     Route::get('/especialidades/create', [SpecialtyController::class, 'create']);
-//editar
     Route::get('/especialidades/{specialty}/edit', [SpecialtyController::class, 'edit']);
-//enviar datos
     Route::post('/especialidades', [SpecialtyController::class, 'sendData']);   
-//actualizar datos
     Route::put('/especialidades/{specialty}', [SpecialtyController::class, 'update']);   
-// eliminar datos
     Route::delete('/especialidades/{specialty}', [SpecialtyController::class, 'destroy']); 
 
 //Medicos 
@@ -51,7 +47,12 @@ Route::get('/especialidades', [SpecialtyController::class, 'index']);
     Route::resource('pacientes', 'App\Http\Controllers\Admin\PatientController');
 
 //Centros
-    Route::get('/centros', []);
+    Route::get('/centros', [MedicalCenterController::class, 'index']);
+    Route::get('/centros/create', [MedicalCenterController::class, 'create']);
+    Route::get('/centros/{medicalcenter}/edit', [MedicalCenterController::class, 'edit']);
+    Route::post('/centros', [MedicalCenterController::class, 'sendData']);
+    Route::put('/centros/{medicalcenter}', [MedicalCenterController::class, 'update']);
+    Route::delete('/centros/{medicalcenter}', [MedicalCenterController::class, 'destroy']);
 
 });
 
