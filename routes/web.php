@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\Admin\MedicalCenterController;
 use App\Http\Controllers\Doctor\ScheduleController;
-use App\Http\Controllers\Paciente\AppointmentController;
+use App\Http\Controllers\Patient\AppointmentController;
 
 
 /*
@@ -65,9 +65,9 @@ Route::middleware(['auth', 'medico'])->group(function () {
 
 
 });
-
+Route::get('/reservarcita/create', [AppointmentController::class, 'create']);
+Route::get('/miscitas', [AppointmentController::class, 'store']);
 //Midlleware Paciente
 Route::middleware(['auth', 'paciente'])->group(function () {
-    Route::get('/reservarcita/create', [AppointmentController::class, 'create']);
-    Route::get('/miscitas', [AppointmentController::class, 'store']);
+   
 });

@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Patient;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Specialty; 
 
 class AppointmentController extends Controller{
     
     public function create(){
-        return view(''); 
+        $specialties = Specialty::all(); 
+        return view('appointments.create', compact('specialties')); 
     }
 }
