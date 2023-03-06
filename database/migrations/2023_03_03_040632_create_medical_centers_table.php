@@ -9,11 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+    public function up(): void{
+
         Schema::create('medical_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('department_id')->on('cities');
             $table->timestamps();
         });
     }
@@ -21,8 +25,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void{
+        
         Schema::dropIfExists('medical_centers');
     }
 };

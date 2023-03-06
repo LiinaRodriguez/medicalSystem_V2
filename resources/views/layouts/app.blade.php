@@ -6,6 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!--Livewire-->
+    @livewireStyles
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -15,6 +17,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @livewireScripts
+
 </head>
 <body>
     <div id="app">
