@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Specialty;
 use App\Http\Controllers\Controller; 
+
 
 
 class DoctorController extends Controller
@@ -21,8 +23,8 @@ class DoctorController extends Controller
      * Show the form for creating a new resource.
      */
     public function create(){
-        
-        return view('doctors.create');
+        $specialties = Specialty::all();
+        return view('doctors.create', compact('specialties'));
     }
 
     /**
