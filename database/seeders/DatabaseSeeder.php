@@ -6,8 +6,7 @@ require_once 'vendor/autoload.php';
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DatabaseSeeder extends Seeder
-{
+class DatabaseSeeder extends Seeder{
     /**
      * Seed the application's database.
      */
@@ -21,6 +20,5 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(UsersTableSeeder::class);
-        $this->call(DepartmentsTableSeeder::class);
     }
 }

@@ -15,10 +15,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void {
 
-      /** 
         User::create([
-            'name' => 'Lina',
-            'email' => 'Lina@gmail.com',
+            'name' => 'Admin',
+            'email' => 'Admin@example.com',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'), // password
             'cedula' => '10000011',
@@ -26,7 +25,27 @@ class UsersTableSeeder extends Seeder
             'phone' => '2993901',
             'role' => 'admin',
         ]);
-        */
+
+        User::create([
+            'name' => 'Paciente',
+            'email' => 'paciente@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'), // password
+            'cedula' => '10000111',
+            'address' => 'Av Universitaria',
+            'role' => 'paciente',
+        ]);
+
+        User::create([
+            'name' => 'Doc',
+            'email' => 'medico@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'), // password
+            'cedula' => '10001111',
+            'address' => 'Av Universitaria',
+            'role' => 'medico',
+        ]);
+        
         User::factory()->count(20)->create();
     }
 }
