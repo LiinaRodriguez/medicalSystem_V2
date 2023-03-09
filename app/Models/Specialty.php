@@ -9,6 +9,6 @@ class Specialty extends Model{
     use HasFactory;
 
     public function users(){
-        return $this->belongsToMany(Users::class); 
+        return $this->belongsToMany(Users::class)->withTimestamps(); 
     }
 }

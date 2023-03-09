@@ -1,3 +1,4 @@
+
 <div>
 <form action="{{ url('/centros')}}" method="POST">
                 @csrf
@@ -28,7 +29,7 @@
                 <div class="form-group">
                     <label for="city_id">Ciudad</label>
                     <select class="form-control" name="city_id" 
-                    wire:model="City"> 
+                    wire:model="selectedCity"> 
                          @foreach($cities as $city)
                             <option value="{{ $city->id}}">{{$city->name}}</option>
                          @endforeach

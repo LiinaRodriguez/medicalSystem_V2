@@ -9,8 +9,7 @@ use App\Http\Controllers\Controller;
 
 
 
-class DoctorController extends Controller
-{
+class DoctorController extends Controller {
     /**
      * Display a listing of the resource.
      */
@@ -21,7 +20,7 @@ class DoctorController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     */
+     */ 
     public function create(){
         $specialties = Specialty::all();
         return view('doctors.create', compact('specialties'));
@@ -51,16 +50,18 @@ class DoctorController extends Controller
 
         $this->validate($request, $rules, $messages);
 
-        User::create(
+        $user = User::create(
             $request->only('name', 'email', 'cedula', 'address', 'phone')
             + ['role' => 'medico',
                 'password' => bcrypt($request->input('password'))]
         );
 
+        $user->specialties()->attach($request->input('specialties')); 
         $notification = 'Se ha registrado un nuevo médico';
         return redirect('/medicos')->with(compact('notification')); 
     }
 
+        
     /**
      * Display the specified resource.
      */
@@ -75,7 +76,9 @@ class DoctorController extends Controller
     public function edit(string $id){
 
         $doc = User::doctors()->findOrFail($id);
-        return view('doctors.edit', compact('doc')); 
+        $specialties = Specialty::all();
+        $specialty_ids = $doc->specialties()->pluck('specialties.id');
+        return view('doctors.edit', compact('doc', 'specialties', 'specialty_ids')); 
     }
 
     /**
@@ -110,6 +113,7 @@ class DoctorController extends Controller
         
         $user->fill($data);
         $user->save();
+        $user->specialties()->sync($request->input('specialties'));
 
         $notification = 'El médico se ha modificado correctamente' ;
         return redirect('/medicos')->with(compact('notification')); 

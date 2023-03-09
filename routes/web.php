@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SpecialtyController;
+use App\Http\Livewire\MedicalCenter;
 use App\Http\Controllers\Admin\MedicalCenterController;
 use App\Http\Controllers\Doctor\ScheduleController;
 use App\Http\Controllers\Patient\AppointmentController;
+
 
 
 /*
@@ -50,7 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 //Centros
     Route::get('/centros', [MedicalCenterController::class, 'index']);
-    Route::get('/centros/create', [MedicalCenterController::class, 'create']);
+    Route::get('/centros/create', [MedicalCenter::class, 'create']);
     Route::get('/centros/{medicalcenter}/edit', [MedicalCenterController::class, 'edit']);
     Route::post('/centros', [MedicalCenterController::class, 'sendData']);
     Route::put('/centros/{medicalcenter}', [MedicalCenterController::class, 'update']);

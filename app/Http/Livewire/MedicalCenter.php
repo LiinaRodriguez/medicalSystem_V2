@@ -18,11 +18,23 @@ class MedicalCenter extends Component{
         $this->cities = collect(); 
     }
 
-    public function updateSelectedDepartment($department){
-        $this->cities = City::where('department_id', $department)->get();
+    public function updatedselectedDepartment($departments){
+        $this->cities = City::where('department_id', $departments)->get();
     }
 
     public function render(){
-        return view( view: 'livewire.medical-center');
+        return view('livewire.medical-center',[
+            'departments' =>  Department::all()
+        ]);
     }
+
+    
+    public function create(){
+        $departments = Department::all();
+        $cities = City::all();
+        return view('livewire.medical-center', compact('departments', 'cities'));
+    }
+ 
+    
+
 }
